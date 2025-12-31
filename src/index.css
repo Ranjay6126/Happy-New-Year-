@@ -1,0 +1,358 @@
+/* Copy of original styles adapted for React app */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:black;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Canvas */
+canvas{
+    position:absolute;
+    inset:0;
+    z-index:1;
+}
+
+/* Stars */
+.stars{
+    position:absolute;
+    inset:0;
+    z-index:2;
+}
+
+/* Container */
+.container{
+    position:relative;
+    z-index:5;
+    text-align:center;
+}
+
+/* Title */
+.title{
+    font-family:'Orbitron',sans-serif;
+    font-size:5rem;
+    letter-spacing:6px;
+    background:linear-gradient(90deg,#00ffff,#ff00ff,#ffd700);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 40px rgba(255,255,255,.5);
+    animation:float 5s infinite;
+}
+
+/* Year Container */
+.year-container{
+    position:relative;
+    width:650px;
+    height:260px;
+    margin:40px auto;
+}
+
+
+/* 2025 */
+.year-old{
+    position:absolute;
+    left:240px;
+    font-family:'Orbitron',sans-serif;
+    font-size:11rem;
+    background:linear-gradient(45deg,#999,#fff,#999);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:push2025 8s forwards;
+}
+
+/* 2026 */
+.year-new{
+    position:absolute;
+    left:240px;
+    font-family:'Orbitron',sans-serif;
+    font-size:11rem;
+    opacity:0;
+    background:linear-gradient(45deg,#ffd700,#ff00ff,#00ffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 60px gold;
+    animation:show2026 8s forwards;
+}
+
+/* BOY */
+.boy{
+    position:absolute;
+    left:-220px;
+    bottom:10px;
+    width:100px;
+    height:190px;
+    animation:boyPush 8s forwards;
+}
+
+.boy div{
+    position:absolute;
+}
+
+/* Head */
+.head{
+    width:45px;
+    height:45px;
+    background:#ffddb0;
+    border-radius:50%;
+    left:28px;
+    top:20px;
+}
+
+/* Ears */
+.ear{
+    width:10px;
+    height:18px;
+    background:#ffddb0;
+    top:34px;
+    border-radius:5px;
+}
+.ear.left{ left:18px; }
+.ear.right{ left:63px; }
+
+/* Eyes (improved) */
+.eye{
+    width:10px;
+    height:10px;
+    background:#fff;
+    border-radius:50%;
+    top:36px;
+    box-shadow:0 0 0 2px rgba(0,0,0,0.06) inset;
+    overflow:visible;
+    animation:blink 4s infinite;
+}
+.eye::after{
+    content:"";
+    position:absolute;
+    width:5px;
+    height:5px;
+    background:#000;
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+.eye::before{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:rgba(255,255,255,0.9);
+    border-radius:50%;
+    left:60%;
+    top:35%;
+}
+.eye.left{ left:36px; }
+.eye.right{ left:52px; }
+
+/* Hat */
+.hat{
+    width:55px;
+    height:18px;
+    background:red;
+    top:8px;
+    left:23px;
+    border-radius:6px 6px 0 0;
+}
+.hat::after{
+    content:"";
+    position:absolute;
+    width:70px;
+    height:6px;
+    background:red;
+    bottom:-6px;
+    left:-8px;
+    border-radius:5px;
+}
+
+/* Nose */
+.nose{
+    width:6px;
+    height:6px;
+    background:#f0b27a;
+    border-radius:50%;
+    left:46px;
+    top:44px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.08) inset;
+}
+
+/* Eyebrows */
+.brow{
+    width:14px;
+    height:3px;
+    background:#6b3b2a;
+    top:30px;
+    border-radius:3px;
+}
+.brow.left{ left:34px; transform:rotate(-6deg); }
+.brow.right{ left:50px; transform:rotate(6deg); }
+
+/* Body */
+.body{
+    width:18px;
+    height:52px;
+    background:#fefefe;
+    top:108px;
+    left:46px;
+    border-radius:4px;
+}
+
+/* Coat */
+.coat{
+    position:absolute;
+    width:74px;
+    height:100px;
+    background:linear-gradient(180deg,#1f6f8b,#163f4a);
+    left:13px;
+    top:72px;
+    border-radius:8px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.3);
+}
+.coat-button{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#ffd966;
+    border-radius:50%;
+    left:34px;
+}
+.coat-button.b1{ top:30px; }
+.coat-button.b2{ top:52px; }
+.coat .body{ position:absolute; left:28px; top:18px; width:18px; height:52px; background:#fefefe; border-radius:4px; }
+
+/* Arms, hands, fingers */
+.arm{
+    position:absolute;
+    width:18px;
+    height:60px;
+    background:transparent;
+    top:92px;
+}
+.arm.left{ left:8px; transform:rotate(0deg); z-index:8; }
+.arm.right{ left:58px; transform:rotate(0deg); z-index:8; }
+.arm .hand{
+    position:absolute;
+    width:60px;
+    height:28px;
+    background:transparent;
+    left:36px; /* extend forward */
+    top:18px;
+    z-index:10;
+    transform-origin: left center;
+}
+.arm.left .hand{ transform:rotate(-6deg); }
+.arm.right .hand{ transform:rotate(6deg); }
+.hand::before{
+    content:"";
+    position:absolute;
+    width:28px;
+    height:22px;
+    background:#ffddb0;
+    border-radius:6px;
+    left:8px;
+    top:2px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.15);
+    z-index:11;
+}
+.finger{
+    position:absolute;
+    width:4px;
+    height:10px;
+    background:#ffddb0;
+    border-radius:2px;
+    top:-2px;
+}
+.finger.f1{ left:22px; transform:rotate(-6deg); }
+.finger.f2{ left:28px; transform:rotate(6deg); }
+.finger.f3{ left:34px; transform:rotate(16deg); }
+.finger.f4{ left:40px; transform:rotate(26deg); }
+
+/* Stick (push pole) */
+.stick{
+    position:absolute;
+    width:8px;
+    height:120px;
+    background:linear-gradient(180deg,#8b5e3c,#5a3b20);
+    left:82px;
+    top:52px;
+    border-radius:4px;
+    transform-origin:bottom center;
+    z-index:11;
+    box-shadow:0 4px 8px rgba(0,0,0,0.4);
+}
+.stick::after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:8px;
+    background:#ffd966;
+    left:-6px;
+    top:-8px;
+    border-radius:3px;
+    transform:translateY(-2px);
+    box-shadow:0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* Bring hands in front of coat/text */
+.boy .arm, .boy .hand, .boy .finger { z-index:12; }
+
+/* Legs */
+.leg{
+    width:15px;
+    height:55px;
+    background:white;
+    top:135px;
+}
+.leg.left{ left:30px; transform:rotate(15deg); }
+.leg.right{ left:52px; transform:rotate(-10deg); }
+
+/* Text */
+p{
+    font-size:1.6rem;
+    margin-top:20px;
+    animation:float 4s infinite reverse;
+}
+
+/* Animations */
+@keyframes boyPush{
+    0%{left:-220px;}
+    50%{left:140px;}
+    80%,100%{left:300px;}
+}
+
+@keyframes push2025{
+    0%{transform:translateX(0);}
+    50%{transform:translateX(220px) rotateY(90deg);}
+    100%{transform:translateX(650px) scale(0);opacity:0;}
+}
+
+@keyframes show2026{
+    0%{opacity:0;transform:scale(0.3);} 
+    60%{opacity:0;} 
+    80%{opacity:1;transform:scale(1.3);} 
+    100%{opacity:1;transform:scale(1);} 
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);} 
+    50%{transform:translateY(-20px);} 
+}
+
+@keyframes blink{
+    0%,95%,100%{height:6px;} 
+    97%{height:1px;} 
+}
+
+@keyframes twinkle{
+    from{opacity:.3;} 
+    to{opacity:1;} 
+}
